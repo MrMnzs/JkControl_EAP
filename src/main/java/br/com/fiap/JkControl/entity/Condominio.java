@@ -79,5 +79,11 @@ public class Condominio implements Serializable {
         this.dataFundacao = dataFundacao;
     }
 
-    //TODO método toString personalizado
+    @Override
+    public String toString() {
+        return "\nNome: " + this.getNomeFantasia()
+                + "\ncnpj: " + this.getCnpj()
+                + "\nRazão social: " + this.getRazaoSocial();
+    }
+
 }

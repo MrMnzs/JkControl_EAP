@@ -88,4 +88,7 @@ public class Visitante implements Serializable {
     public void setDataCadastro(LocalDateTime dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
+
+
+    //TODO tostring
 }

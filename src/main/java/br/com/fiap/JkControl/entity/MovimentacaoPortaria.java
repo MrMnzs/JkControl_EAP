@@ -1,10 +1,7 @@
 package br.com.fiap.JkControl.entity;
 
 
-import jdk.internal.agent.AgentConfigurationError;
-
 import javax.persistence.*;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -12,6 +9,10 @@ import java.time.format.DateTimeFormatter;
 @Entity
 @Table(name="t_gco_movimentacao_portaria")
 @SequenceGenerator(name="movimentacao_portaria", sequenceName = "sq_t_gco_movimentacao_portaria", allocationSize = 1)
+@NamedQueries({
+        @NamedQuery(name = "MovimentacaoPortaria.listarPorTipo",
+                query = "SELECT m FROM MovimentacaoPortaria m WHERE m.tipoMovimentacao = :tipoMovimentacao")
+})
 public class MovimentacaoPortaria implements Serializable {
 
 
@@ -21,8 +22,7 @@ public class MovimentacaoPortaria implements Serializable {
 
     }
 
-    public MovimentacaoPortaria(Long id, Portaria portaria, FuncionarioPortaria funcionarioPortaria, Visitante visitante, String tipoMovimentacao, LocalDateTime dataMovimentacao) {
-        this.id = id;
+    public MovimentacaoPortaria(Portaria portaria, FuncionarioPortaria funcionarioPortaria, Visitante visitante, String tipoMovimentacao, LocalDateTime dataMovimentacao) {
         this.portaria = portaria;
         this.funcionarioPortaria = funcionarioPortaria;
         this.visitante = visitante;
@@ -36,16 +36,15 @@ public class MovimentacaoPortaria implements Serializable {
     private Long id;
 
 
-    //TODO corrigir relacionamentos
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name="id_portaria")
     private Portaria portaria;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name="id_func_portaria")
     private FuncionarioPortaria funcionarioPortaria;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name="id_visitante")
     private Visitante visitante;
 
@@ -108,8 +107,8 @@ public class MovimentacaoPortaria implements Serializable {
     public String toString() {
         return "\nNome Visitante: " + this.getVisitante().getClass().getName()
                 + "\nPortaria: " + this.getPortaria().getClass().getName()
+                + "\nTipo: " + this.getTipoMovimentacao()
                 + "\nFuncionario na portaria: " + this.getFuncionarioPortaria().getNome()
-                + "\nData de Início: " + this.getDataMovimentacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"))
-                + "\nData de Término: " + this.getTipoMovimentacao();
+                + "\nData de Início: " + this.getDataMovimentacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
     }
 }

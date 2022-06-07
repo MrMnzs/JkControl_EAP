@@ -21,7 +21,7 @@ public class VisitanteServiceImpl extends GenericService<Visitante, Long> {
 
 
     private VisitanteServiceImpl(){
-        this.visitanteDAO = visitanteDAO;
+        this.visitanteDAO = VisitanteDAOImpl.getInstance();
     }
 
 
@@ -62,7 +62,6 @@ public class VisitanteServiceImpl extends GenericService<Visitante, Long> {
 
     @Override
     public Visitante obter(Long id) {
-        //TODO fazer direitinho
         Visitante visitante = null;
         try {
             visitante = visitanteDAO.obterPorId(id, getEntityManager());
@@ -77,7 +76,6 @@ public class VisitanteServiceImpl extends GenericService<Visitante, Long> {
 
     @Override
     public List<Visitante> listar() {
-        //TODO fazer direitinho
         List<Visitante> visitantes = null;
         try {
             visitantes = visitanteDAO.listar(getEntityManager());

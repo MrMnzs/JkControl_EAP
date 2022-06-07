@@ -23,7 +23,7 @@ public class MovimentacaoPortariaServiceImpl extends GenericService<Movimentacao
 
 
     private MovimentacaoPortariaServiceImpl(){
-        this.movimentacaoDAO = movimentacaoDAO;
+        this.movimentacaoDAO = MovimentacaoDAOImpl.getInstance();
     }
 
 
@@ -83,6 +83,20 @@ public class MovimentacaoPortariaServiceImpl extends GenericService<Movimentacao
         List<MovimentacaoPortaria> movimentacaoPortarias = null;
         try {
             movimentacaoPortarias = movimentacaoDAO.listar(getEntityManager());
+        }catch (Exception e){
+            e.printStackTrace();
+            getEntityManager().getTransaction().rollback();
+        }finally {
+            closeEntityManager();
+        }
+        return movimentacaoPortarias;
+    }
+
+    public List<MovimentacaoPortaria> listarPorTipo(String tipo) {
+
+        List<MovimentacaoPortaria> movimentacaoPortarias = null;
+        try {
+            movimentacaoPortarias = movimentacaoDAO.listagemPorTipo(tipo, getEntityManager());
         }catch (Exception e){
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
