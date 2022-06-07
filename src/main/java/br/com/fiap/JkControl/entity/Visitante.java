@@ -90,5 +90,10 @@ public class Visitante implements Serializable {
     }
 
 
-    //TODO tostring
+    @Override
+    public String toString() {
+        return "\nNome: " + this.getNome()
+                + "\ncpf: " + this.getCpf()
+                + "\nrg: " + this.getRg();
+    }
 }
