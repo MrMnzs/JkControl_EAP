@@ -12,11 +12,12 @@ public class Condominio implements Serializable {
     private static final long serialVersionUID = -1982899238988341714L;
     @Id
     @GeneratedValue(generator = "condominio", strategy = GenerationType.SEQUENCE)
+    @Column(name = "id_condominio")
     private Long id;
 
-    //TODO alterar atributos de acordo com o que o professor passar
+    @Column(name = "nr_cnpj")
+    private String cnpj;
 
-    //Copiar e colar esse atributo com essa tag para facilitar
     @Column(name = "ds_razao_social")
     private String razaoSocial;
 
@@ -27,11 +28,6 @@ public class Condominio implements Serializable {
 
     @Column(name = "dt_fundacao")
     private LocalDate dataFundacao;
-
-
-
-
-
 
 
     //TODO método toString personalizado
