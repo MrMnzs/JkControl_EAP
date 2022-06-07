@@ -48,6 +48,8 @@ public class App {
 
 		movimentacaoPortariaService.listarPorTipo("Tipo E").forEach(System.out::println);
 
+		visitanteService.listarPorNomeLike("J").forEach(System.out::println);
+
 		
 	}
 }
