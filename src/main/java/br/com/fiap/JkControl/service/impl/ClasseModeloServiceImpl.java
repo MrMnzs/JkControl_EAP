@@ -1,12 +1,12 @@
 package br.com.fiap.JkControl.service.impl;
 
 import br.com.fiap.JkControl.dao.impl.ClasseModeloDAOImpl;
-import br.com.fiap.JkControl.entity.ClasseModelo;
+import br.com.fiap.JkControl.entity.Condominio;
 import br.com.fiap.JkControl.service.GenericService;
 
 import java.util.List;
 
-public class ClasseModeloServiceImpl extends GenericService<ClasseModelo, Long> {
+public class ClasseModeloServiceImpl extends GenericService<Condominio, Long> {
 
     private static ClasseModeloServiceImpl instance = null;
 
@@ -26,7 +26,7 @@ public class ClasseModeloServiceImpl extends GenericService<ClasseModelo, Long> 
 
 
     @Override
-    public void inserir(ClasseModelo instance) {
+    public void inserir(Condominio instance) {
         try {
 
         }catch (Exception e){
@@ -37,7 +37,7 @@ public class ClasseModeloServiceImpl extends GenericService<ClasseModelo, Long> 
         }
     }
     @Override
-    public void atualizar(ClasseModelo instance) {
+    public void atualizar(Condominio instance) {
         try {
 
         }catch (Exception e){
@@ -61,7 +61,7 @@ public class ClasseModeloServiceImpl extends GenericService<ClasseModelo, Long> 
     }
 
     @Override
-    public ClasseModelo obter(Long id) {
+    public Condominio obter(Long id) {
         //TODO fazer direitinho
         try {
 
@@ -75,7 +75,7 @@ public class ClasseModeloServiceImpl extends GenericService<ClasseModelo, Long> 
     }
 
     @Override
-    public List<ClasseModelo> listar() {
+    public List<Condominio> listar() {
         //TODO fazer direitinho
         try {
 

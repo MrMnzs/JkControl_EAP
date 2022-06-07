@@ -1,9 +1,9 @@
 package br.com.fiap.JkControl.dao.impl;
 
 import br.com.fiap.JkControl.dao.HibernateGenericDAO;
-import br.com.fiap.JkControl.entity.ClasseModelo;
+import br.com.fiap.JkControl.entity.Condominio;
 
-public class ClasseModeloDAOImpl extends HibernateGenericDAO<ClasseModelo, Long> {
+public class ClasseModeloDAOImpl extends HibernateGenericDAO<Condominio, Long> {
 
     private static ClasseModeloDAOImpl instance = null;
 
@@ -16,7 +16,7 @@ public class ClasseModeloDAOImpl extends HibernateGenericDAO<ClasseModelo, Long>
 
 
     public ClasseModeloDAOImpl() {
-        super(ClasseModelo.class);
+        super(Condominio.class);
     }
 
     //TODO queries necessárias
