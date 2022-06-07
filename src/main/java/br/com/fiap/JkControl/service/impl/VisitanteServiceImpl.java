@@ -1,34 +1,34 @@
 package br.com.fiap.JkControl.service.impl;
 
-import br.com.fiap.JkControl.dao.impl.CondominioDAOImpl;
-import br.com.fiap.JkControl.entity.Condominio;
+import br.com.fiap.JkControl.dao.impl.VisitanteDAOImpl;
+import br.com.fiap.JkControl.entity.Visitante;
 import br.com.fiap.JkControl.service.GenericService;
 
 import java.util.List;
 
-public class ClasseModeloServiceImpl extends GenericService<Condominio, Long> {
+public class VisitanteServiceImpl extends GenericService<Visitante, Long> {
 
-    private static ClasseModeloServiceImpl instance = null;
+    private static VisitanteServiceImpl instance = null;
 
-    private CondominioDAOImpl classeModeloDAO;
+    private VisitanteDAOImpl visitanteDAO;
 
-    public static ClasseModeloServiceImpl getInstance(){
+    public static VisitanteServiceImpl getInstance(){
         if(instance == null){
-            instance = new ClasseModeloServiceImpl();
+            instance = new VisitanteServiceImpl();
         }
         return instance;
     }
 
 
-    private ClasseModeloServiceImpl(){
-        this.classeModeloDAO = classeModeloDAO;
+    private VisitanteServiceImpl(){
+        this.visitanteDAO = visitanteDAO;
     }
 
 
     @Override
-    public void inserir(Condominio instance) {
+    public void inserir(Visitante visitante) {
         try {
-
+            visitanteDAO.salvar(visitante, getEntityManager());
         }catch (Exception e){
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
@@ -37,9 +37,9 @@ public class ClasseModeloServiceImpl extends GenericService<Condominio, Long> {
         }
     }
     @Override
-    public void atualizar(Condominio instance) {
+    public void atualizar(Visitante visitante) {
         try {
-
+            visitanteDAO.atualizar(visitante, getEntityManager());
         }catch (Exception e){
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
@@ -51,7 +51,7 @@ public class ClasseModeloServiceImpl extends GenericService<Condominio, Long> {
     @Override
     public void remover(Long id) {
         try {
-
+            visitanteDAO.remover(id, getEntityManager());
         }catch (Exception e){
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
@@ -61,30 +61,32 @@ public class ClasseModeloServiceImpl extends GenericService<Condominio, Long> {
     }
 
     @Override
-    public Condominio obter(Long id) {
+    public Visitante obter(Long id) {
         //TODO fazer direitinho
+        Visitante visitante = null;
         try {
-
+            visitante = visitanteDAO.obterPorId(id, getEntityManager());
         }catch (Exception e){
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
         }finally {
             closeEntityManager();
         }
-        return null;
+        return visitante;
     }
 
     @Override
-    public List<Condominio> listar() {
+    public List<Visitante> listar() {
         //TODO fazer direitinho
+        List<Visitante> visitantes = null;
         try {
-
+            visitantes = visitanteDAO.listar(getEntityManager());
         }catch (Exception e){
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
         }finally {
             closeEntityManager();
         }
-        return null;
+        return visitantes;
     }
 }
