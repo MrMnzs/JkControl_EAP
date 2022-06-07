@@ -1,11 +1,13 @@
 package br.com.fiap.JkControl.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @SequenceGenerator(name = "", sequenceName = "SQ_TB_", allocationSize = 1)
-public class ClasseModelo {
+public class ClasseModelo implements Serializable {
 
+    private static final long serialVersionUID = -1982899238988341714L;
     @Id
     @GeneratedValue(generator = "", strategy = GenerationType.SEQUENCE)
     private Long id;
