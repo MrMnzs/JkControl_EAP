@@ -10,7 +10,7 @@ public class PersistenceManager {
 	private EntityManagerFactory entityManagerFactory = null;
 	
 	private PersistenceManager() {
-		this.entityManagerFactory = Persistence.createEntityManagerFactory("FIAP_PU");
+		this.entityManagerFactory = Persistence.createEntityManagerFactory("jkeap");
 	}
 	
 	public static PersistenceManager getInstance() {
