@@ -1,33 +1,33 @@
 package br.com.fiap.JkControl.service.impl;
 
-import br.com.fiap.JkControl.dao.impl.CondominioDAOImpl;
-import br.com.fiap.JkControl.entity.Condominio;
+import br.com.fiap.JkControl.dao.impl.PortariaDAOImpl;
+import br.com.fiap.JkControl.entity.Portaria;
 import br.com.fiap.JkControl.service.GenericService;
 import java.util.List;
 
-public class CondominioServiceImpl extends GenericService<Condominio, Long> {
+public class PortariaServiceImpl extends GenericService<Portaria, Long> {
 
-    private static CondominioServiceImpl instance = null;
+    private static PortariaServiceImpl instance = null;
 
-    private CondominioDAOImpl condominioDAO;
+    private PortariaDAOImpl portariaDAO;
 
-    public static CondominioServiceImpl getInstance(){
+    public static PortariaServiceImpl getInstance(){
         if(instance == null){
-            instance = new CondominioServiceImpl();
+            instance = new PortariaServiceImpl();
         }
         return instance;
     }
 
 
-    private CondominioServiceImpl(){
-        this.condominioDAO = condominioDAO;
+    private PortariaServiceImpl(){
+        this.portariaDAO = portariaDAO;
     }
 
 
     @Override
-    public void inserir(Condominio condominio) {
+    public void inserir(Portaria portaria) {
         try {
-            condominioDAO.salvar(condominio, getEntityManager());
+            portariaDAO.salvar(portaria, getEntityManager());
         }catch (Exception e){
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
@@ -36,9 +36,9 @@ public class CondominioServiceImpl extends GenericService<Condominio, Long> {
         }
     }
     @Override
-    public void atualizar(Condominio condominio) {
+    public void atualizar(Portaria portaria) {
         try {
-            condominioDAO.atualizar(condominio, getEntityManager());
+            portariaDAO.atualizar(portaria, getEntityManager());
         }catch (Exception e){
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
@@ -50,7 +50,7 @@ public class CondominioServiceImpl extends GenericService<Condominio, Long> {
     @Override
     public void remover(Long id) {
         try {
-            condominioDAO.remover(id, getEntityManager());
+            portariaDAO.remover(id, getEntityManager());
         }catch (Exception e){
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
@@ -60,32 +60,32 @@ public class CondominioServiceImpl extends GenericService<Condominio, Long> {
     }
 
     @Override
-    public Condominio obter(Long id) {
-        //TODO fazer direitinho
-        Condominio condominio = null;
+    public Portaria obter(Long id) {
+
+        Portaria portaria = null;
         try {
-            condominio = condominioDAO.obterPorId(id, getEntityManager());
+            portaria = portariaDAO.obterPorId(id, getEntityManager());
         }catch (Exception e){
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
         }finally {
             closeEntityManager();
         }
-        return condominio;
+        return portaria;
     }
 
     @Override
-    public List<Condominio> listar() {
-        //TODO fazer direitinho
-        List<Condominio> condominios = null;
+    public List<Portaria> listar() {
+
+        List<Portaria> portarias = null;
         try {
-            condominios = condominioDAO.listar(getEntityManager());
+            portarias = portariaDAO.listar(getEntityManager());
         }catch (Exception e){
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
         }finally {
             closeEntityManager();
         }
-        return condominios;
+        return portarias;
     }
 }
