@@ -90,5 +90,10 @@ public class FuncionarioPortaria implements Serializable {
         this.dataCadastro = dataCadastro;
     }
 
-    //TODO tostring
+    @Override
+    public String toString() {
+        return "\nNome: " + this.getNome()
+                + "\ncpf: " + this.getCpf()
+                + "\nrg: " + this.getRg();
+    }
 }
