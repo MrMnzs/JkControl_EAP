@@ -114,7 +114,7 @@ public class VisitanteServiceImpl extends GenericService<Visitante, Long> {
         return visitantes;
     }
 
-    public List<Visitante> listarCpfEqual(String cpf) {
+    public List<Visitante> listarDataMaior(String cpf) {
         List<Visitante> visitantes = null;
         try {
             visitantes = visitanteDAO.listarCpfEqual(cpf, getEntityManager());
