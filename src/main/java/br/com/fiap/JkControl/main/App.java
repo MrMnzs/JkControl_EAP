@@ -48,8 +48,18 @@ public class App {
 
 		movimentacaoPortariaService.listarPorTipo("Tipo E").forEach(System.out::println);
 
+		System.out.println("==== Padrão por nome (Like)====");
+
 		visitanteService.listarPorNomeLike("J").forEach(System.out::println);
+
+
+		System.out.println("==== Busca por cpf (equal) ====");
+
 		visitanteService.listarCpfEqual("333.333.333-33").forEach(System.out::println);
+
+
+		System.out.println("==== DATA DE CADASTRO MAIOR OU IGUAL A (EqualOrGreaterThan)====");
+		visitanteService.listarDataMaior(LocalDateTime.of(2022, 05, 23, 02, 00, 25)).forEach(System.out::println);
 
 	}
 }
