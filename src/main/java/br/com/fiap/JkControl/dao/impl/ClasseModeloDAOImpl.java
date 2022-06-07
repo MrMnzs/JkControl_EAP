@@ -3,19 +3,19 @@ package br.com.fiap.JkControl.dao.impl;
 import br.com.fiap.JkControl.dao.HibernateGenericDAO;
 import br.com.fiap.JkControl.entity.ClasseModelo;
 
-public class ClasseModeloDAO extends HibernateGenericDAO<ClasseModelo, Long> {
+public class ClasseModeloDAOImpl extends HibernateGenericDAO<ClasseModelo, Long> {
 
-    private static ClasseModeloDAO instance = null;
+    private static ClasseModeloDAOImpl instance = null;
 
-    public static ClasseModeloDAO getInstance() {
+    public static ClasseModeloDAOImpl getInstance() {
         if (instance == null){
-            instance = new ClasseModeloDAO();
+            instance = new ClasseModeloDAOImpl();
         }
         return instance;
     }
 
 
-    public ClasseModeloDAO() {
+    public ClasseModeloDAOImpl() {
         super(ClasseModelo.class);
     }
 
