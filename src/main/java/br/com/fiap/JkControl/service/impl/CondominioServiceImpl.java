@@ -11,6 +11,10 @@ public class CondominioServiceImpl extends GenericService<Condominio, Long> {
 
     private CondominioDAOImpl condominioDAO;
 
+    public CondominioServiceImpl() {
+        this.condominioDAO = CondominioDAOImpl.getInstance();
+    }
+
     public static CondominioServiceImpl getInstance(){
         if(instance == null){
             instance = new CondominioServiceImpl();
@@ -18,10 +22,6 @@ public class CondominioServiceImpl extends GenericService<Condominio, Long> {
         return instance;
     }
 
-
-    private CondominioServiceImpl(){
-        this.condominioDAO = condominioDAO;
-    }
 
 
     @Override
@@ -61,7 +61,6 @@ public class CondominioServiceImpl extends GenericService<Condominio, Long> {
 
     @Override
     public Condominio obter(Long id) {
-        //TODO fazer direitinho
         Condominio condominio = null;
         try {
             condominio = condominioDAO.obterPorId(id, getEntityManager());
@@ -76,7 +75,6 @@ public class CondominioServiceImpl extends GenericService<Condominio, Long> {
 
     @Override
     public List<Condominio> listar() {
-        //TODO fazer direitinho
         List<Condominio> condominios = null;
         try {
             condominios = condominioDAO.listar(getEntityManager());

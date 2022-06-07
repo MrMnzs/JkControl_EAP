@@ -11,6 +11,11 @@ public class PortariaServiceImpl extends GenericService<Portaria, Long> {
 
     private PortariaDAOImpl portariaDAO;
 
+    public PortariaServiceImpl(){
+        this.portariaDAO = PortariaDAOImpl.getInstance();
+    }
+
+
     public static PortariaServiceImpl getInstance(){
         if(instance == null){
             instance = new PortariaServiceImpl();
@@ -19,9 +24,7 @@ public class PortariaServiceImpl extends GenericService<Portaria, Long> {
     }
 
 
-    private PortariaServiceImpl(){
-        this.portariaDAO = portariaDAO;
-    }
+
 
 
     @Override

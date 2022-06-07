@@ -4,6 +4,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+
 @Entity
 @Table(name="t_gco_portaira")
 @SequenceGenerator(name="portaria", sequenceName = "sq_t_gco_portaira", allocationSize = 1)

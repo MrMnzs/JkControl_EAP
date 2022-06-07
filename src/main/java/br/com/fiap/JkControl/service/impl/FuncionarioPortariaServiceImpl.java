@@ -23,7 +23,7 @@ public class FuncionarioPortariaServiceImpl extends GenericService<FuncionarioPo
 
 
     private FuncionarioPortariaServiceImpl(){
-        this.funcionarioPortariaDAO = funcionarioPortariaDAO;
+        this.funcionarioPortariaDAO = FuncionarioPortariaDAOImpl.getInstance();
     }
 
 
@@ -64,7 +64,6 @@ public class FuncionarioPortariaServiceImpl extends GenericService<FuncionarioPo
 
     @Override
     public FuncionarioPortaria obter(Long id) {
-        //TODO fazer direitinho
         FuncionarioPortaria funcionarioPortaria = null;
         try {
             funcionarioPortaria = funcionarioPortariaDAO.obterPorId(id, getEntityManager());
@@ -79,7 +78,6 @@ public class FuncionarioPortariaServiceImpl extends GenericService<FuncionarioPo
 
     @Override
     public List<FuncionarioPortaria> listar() {
-        //TODO fazer direitinho
         List<FuncionarioPortaria> funcionariosPortaria = null;
         try {
             funcionariosPortaria = funcionarioPortariaDAO.listar(getEntityManager());
