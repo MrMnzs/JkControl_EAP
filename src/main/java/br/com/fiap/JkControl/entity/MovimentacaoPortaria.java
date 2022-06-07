@@ -32,9 +32,11 @@ public class MovimentacaoPortaria implements Serializable {
 
     @Id
     @Column(name="id_movimentacao")
-    @GeneratedValue(generator = "movimentacao", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(generator = "movimentacao_portaria", strategy = GenerationType.SEQUENCE)
     private Long id;
 
+
+    //TODO corrigir relacionamentos
     @OneToMany
     @JoinColumn(name="id_portaria")
     private Portaria portaria;
