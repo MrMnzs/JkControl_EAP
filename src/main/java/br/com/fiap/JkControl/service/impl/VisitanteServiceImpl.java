@@ -4,6 +4,7 @@ import br.com.fiap.JkControl.dao.impl.VisitanteDAOImpl;
 import br.com.fiap.JkControl.entity.Visitante;
 import br.com.fiap.JkControl.service.GenericService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class VisitanteServiceImpl extends GenericService<Visitante, Long> {
@@ -114,10 +115,10 @@ public class VisitanteServiceImpl extends GenericService<Visitante, Long> {
         return visitantes;
     }
 
-    public List<Visitante> listarCpfEqual(String cpf) {
+    public List<Visitante> listarDataMaior(LocalDateTime data) {
         List<Visitante> visitantes = null;
         try {
-            visitantes = visitanteDAO.listarCpfEqual(cpf, getEntityManager());
+            visitantes = visitanteDAO.listarDataCadastroMaior(data, getEntityManager());
         }catch (Exception e){
             e.printStackTrace();
             getEntityManager().getTransaction().rollback();
