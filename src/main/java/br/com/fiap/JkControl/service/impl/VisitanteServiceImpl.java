@@ -100,4 +100,30 @@ public class VisitanteServiceImpl extends GenericService<Visitante, Long> {
         }
         return visitantes;
     }
+
+    public List<Visitante> listarCpfEqual(String cpf) {
+        List<Visitante> visitantes = null;
+        try {
+            visitantes = visitanteDAO.listarCpfEqual(cpf, getEntityManager());
+        }catch (Exception e){
+            e.printStackTrace();
+            getEntityManager().getTransaction().rollback();
+        }finally {
+            closeEntityManager();
+        }
+        return visitantes;
+    }
+
+    public List<Visitante> listarCpfEqual(String cpf) {
+        List<Visitante> visitantes = null;
+        try {
+            visitantes = visitanteDAO.listarCpfEqual(cpf, getEntityManager());
+        }catch (Exception e){
+            e.printStackTrace();
+            getEntityManager().getTransaction().rollback();
+        }finally {
+            closeEntityManager();
+        }
+        return visitantes;
+    }
 }
