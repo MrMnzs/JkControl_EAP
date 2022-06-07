@@ -1,14 +1,16 @@
 package br.com.fiap.JkControl.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "T_GCO_VISITANTE")
 @SequenceGenerator(name = "visitante", sequenceName = "SQ_T_GCO_VISITANTE", allocationSize = 1)
-public class Visitante {
+public class Visitante implements Serializable {
 
+    private static final long serialVersionUID = 4732826528000857159L;
     @Id
     @GeneratedValue(generator = "visitante", strategy = GenerationType.SEQUENCE)
     @Column(name = "id_visitante")
