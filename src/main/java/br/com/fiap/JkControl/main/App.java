@@ -49,7 +49,7 @@ public class App {
 		movimentacaoPortariaService.listarPorTipo("Tipo E").forEach(System.out::println);
 
 		visitanteService.listarPorNomeLike("J").forEach(System.out::println);
+		visitanteService.listarCpfEqual("333.333.333-33").forEach(System.out::println);
 
-		
 	}
 }
