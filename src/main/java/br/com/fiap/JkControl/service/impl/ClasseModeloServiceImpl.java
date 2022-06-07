@@ -1,6 +1,6 @@
 package br.com.fiap.JkControl.service.impl;
 
-import br.com.fiap.JkControl.dao.impl.ClasseModeloDAOImpl;
+import br.com.fiap.JkControl.dao.impl.CondominioDAOImpl;
 import br.com.fiap.JkControl.entity.Condominio;
 import br.com.fiap.JkControl.service.GenericService;
 
@@ -10,7 +10,7 @@ public class ClasseModeloServiceImpl extends GenericService<Condominio, Long> {
 
     private static ClasseModeloServiceImpl instance = null;
 
-    private ClasseModeloDAOImpl classeModeloDAO;
+    private CondominioDAOImpl classeModeloDAO;
 
     public static ClasseModeloServiceImpl getInstance(){
         if(instance == null){
